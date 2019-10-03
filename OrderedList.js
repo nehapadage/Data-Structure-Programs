@@ -1,23 +1,29 @@
 
 
-function unOrder() {
+function Order() {
     var read = require('readline-sync');
     var ulist = require('../Utility/linkedlist');
-   
+   var util=require("../Utility/utility_algo")
     var fileStream = require('fs');
     try {
-        var string = fileStream.readFileSync('InputFile.txt', 'UTF-8');
+        var string = fileStream.readFileSync('NumFile.txt', 'UTF-8');
         var arr = string.split(' ');
-         console.log(arr)
+         //console.log(arr);
+         
+         arr=util.insertionSort(arr);
+
         var ll = new ulist.LinkedList;
+
         for (let i = 0; i < arr.length; i++) {
 
             ll.insert(arr[i]);
         }
+
         ll.show();
 
-        console.log(" Enter the string you want to search : ");
-        var answer =read.question();
+
+        console.log(" Enter the Number you want to search : ");
+        var answer =read.questionInt();
 
         //answer=toString(answer);
 
@@ -35,19 +41,26 @@ function unOrder() {
         }
         
 
+        
         var word = ll.getData();
         
 
-        fileStream.writeFileSync('InputFile.txt', word);
-        console.log(" list of elements are: ");
-        ll.show();
+        fileStream.writeFileSync('NumFile.txt', word);
+
+        var string = fileStream.readFileSync('NumFile.txt', 'UTF-8');
+        var arr = string.split(' ');
+         
+         
+         util.insertionSort(arr);
+
+      
         
 
-        
+      
 
     } catch (error) {
         console.log(error);
     }
     
 }
-module.exports = unOrder();
+module.exports = Order();
