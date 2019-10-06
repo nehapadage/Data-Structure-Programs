@@ -1,7 +1,11 @@
+var input1=require('../data_structure/Utility/utility')
 var read=require('readline-sync')
 var n=read.questionInt("Enter value of n");
-var answer=Math.pow(2,n)-n;
-console.log("No. of trees : "+answer);
+
+input1.BinaryTree(n);
+
+
+
 
 
 
