@@ -305,6 +305,30 @@ ll.show();
 console.log(error);
 }
 
+},
+
+
+primerange (initial, end) 
+{
+    var array = []; var k = 0; var count = 0;
+    var flag = 0
+    for (i = initial; i <= end; i++) {
+        for (j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                flag = 0
+                count++
+                break
+            } else {
+                flag = 1
+            }
+        }
+        if (flag == 1) {
+            array[k++] = i
+        }
+
+    }
+    
+    return array;
 }
 
 
